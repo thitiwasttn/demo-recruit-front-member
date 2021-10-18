@@ -10,4 +10,12 @@
       </li>
     </ul>
   </div>
+
+  <div class="" style="">
+    <ul class="navbar-nav" style="float: right; margin-right: 10px;">
+      <li class="nav-item active" *ngIf="!isLogin">
+        <a class="nav-link" href="#" [routerLink]="['/auth/login']">login </a>
+      </li>
+    </ul>
+  </div>
 </nav>
