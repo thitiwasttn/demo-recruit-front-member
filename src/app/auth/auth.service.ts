@@ -12,6 +12,7 @@ import {RequestLogin} from "../model/request-login.model";
 export class AuthService {
   private memberApiBackend: string;
   private token: string | null;
+  public isLogin = false;
 
   constructor(private http: HttpClient) {
     this.memberApiBackend = environment.memberBackend;
@@ -30,6 +31,10 @@ export class AuthService {
 
   setToken(token: string) {
     localStorage.setItem('token', token);
+  }
+
+  logout() {
+    localStorage.setItem('token', '');
   }
 
 

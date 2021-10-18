@@ -9,7 +9,7 @@ import {AuthService} from "../auth/auth.service";
 export class NavbarComponent implements OnInit {
   isLogin: boolean;
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
     this.isLogin = false;
   }
 
@@ -21,4 +21,8 @@ export class NavbarComponent implements OnInit {
     this.isLogin = this.authService.checkLogin();
   }
 
+  logout() {
+    this.authService.logout();
+
+  }
 }
