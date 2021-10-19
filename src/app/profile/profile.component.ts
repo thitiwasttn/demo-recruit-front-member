@@ -50,7 +50,6 @@ export class ProfileComponent implements OnInit {
               value2.selected = true;
             }
           })
-          console.log(this.jobVms);
         })
       }
 
@@ -70,5 +69,10 @@ export class ProfileComponent implements OnInit {
         this.jobVms.push(jobVM);
       })
     })
+  }
+
+  save() {
+    
+
   }
 }
