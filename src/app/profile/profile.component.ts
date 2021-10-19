@@ -39,8 +39,10 @@ export class ProfileComponent implements OnInit {
     this.memberService.getInfo().subscribe(value => {
       this.member = value.body;
       console.log('this.member', this.member);
-      if (this.member.memberProfiles !== undefined) {
+      if (this.member.memberProfiles !== undefined && this.member.memberProfiles !== null) {
         this.memberProfile = this.member.memberProfiles;
+      } else {
+        this.memberProfile.image = 'assets/no-image.jpg'
       }
       if (this.member.jobs !== undefined) {
         this.jobs = this.member.jobs;
@@ -59,7 +61,7 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  private async loadJobs()  {
+  private async loadJobs() {
     this.jobService.getJobs().subscribe(value => {
       this.jobs = value.body;
       this.jobs.forEach(value1 => {
@@ -72,7 +74,20 @@ export class ProfileComponent implements OnInit {
   }
 
   save() {
-    
-
+    let jobVMS: JobVM[] = this.jobVms.filter(value => value.selected);
+    let jobSave: Job[] = []
+    for (let jobVM of jobVMS) {
+      let job = new Job();
+      job.id = jobVM.id;
+      job.jobName = jobVM.jobName;
+      jobSave.push(job)
+    }
+    // console.log(jobSave);
+    this.member.memberProfiles = this.memberProfile;
+    this.memberService.updateProfile(this.memberProfile).toPromise().then(value => {
+      this.memberService.saveJob(jobSave).subscribe(value1 => {
+        alert('success');
+      })
+    })
   }
 }
