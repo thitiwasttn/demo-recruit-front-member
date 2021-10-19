@@ -6,7 +6,17 @@
     </div>
 
     <div class="row">
-      <form>
+      <form style="margin-top: 10px;">
+        <div class="form-group">
+          <label for="imageupload">image upload</label>
+          <input class="form-control" id="imageupload" type="file"
+                 (change)="onChange($event)">
+
+          <!--<button (click)="onUpload()"
+                  class="btn btn-success">
+            Upload image
+          </button>-->
+        </div>
         <div class="form-group">
           <label for="exampleFormControlInput1">Email address</label>
           <input type="email" class="form-control" [disabled]="true" id="exampleFormControlInput1"

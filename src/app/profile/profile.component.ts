@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
     this.memberService.getInfo().subscribe(value => {
       this.member = value.body;
       console.log('this.member', this.member);
-      if (this.member.memberProfiles !== undefined && this.member.memberProfiles !== null) {
+      if (this.member.memberProfiles !== null && this.member.memberProfiles !== undefined) {
         this.memberProfile = this.member.memberProfiles;
       } else {
         this.memberProfile.image = 'assets/no-image.jpg'
@@ -89,5 +89,13 @@ export class ProfileComponent implements OnInit {
         alert('success');
       })
     })
+  }
+
+  onChange($event: Event) {
+
+  }
+
+  onUpload() {
+
   }
 }
