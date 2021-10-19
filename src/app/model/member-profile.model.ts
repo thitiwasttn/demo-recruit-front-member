@@ -6,7 +6,7 @@ export class MemberProfile {
               public  lastName?: string,
               public address?: string,
               public telno?: string,
-              public birthDate?: Date,
+              public birthdate?: Date,
               public abilityDesc?: string,
               public image?: string) {
   }
