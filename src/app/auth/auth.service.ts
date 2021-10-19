@@ -5,6 +5,7 @@ import {LocalStorageService} from "ngx-webstorage";
 import {Observable} from "rxjs";
 import {ResponseLogin} from "../model/response-login.model";
 import {RequestLogin} from "../model/request-login.model";
+import {RegisterVM} from "../model/register-vm.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,10 @@ export class AuthService {
 
   login(requstLogin: RequestLogin): Observable<HttpResponse<any>> {
     return this.http.post<HttpResponse<ResponseLogin>>(this.memberApiBackend + '/member/login', requstLogin, {observe: 'response'});
+  }
+
+  regis(regisVm: RegisterVM): Observable<HttpResponse<any>> {
+    return this.http.put<HttpResponse<void>>(this.memberApiBackend + '/member/register', regisVm, {observe: 'response'});
   }
 
   setToken(token: string) {

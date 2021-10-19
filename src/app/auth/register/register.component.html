@@ -6,15 +6,18 @@
           <form action="" autocomplete="off">
             <div class="form-group" style="margin-top: 10px;">
               <label for="email">email</label>
-              <input type="text" class="form-control" id="email" [(ngModel)]="loginM.email" name="email">
+              <input type="text" class="form-control" id="email" [(ngModel)]="register.email" name="email">
             </div>
             <div class="form-group" style="margin-top: 10px;">
               <label for="password">password</label>
-              <input type="password" class="form-control" id="password" name="password" [(ngModel)]="loginM.password">
+              <input type="password" class="form-control" id="password" name="password" [(ngModel)]="register.password">
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+              <label for="cpassword">confirm password</label>
+              <input type="password" class="form-control" id="cpassword" name="confirmPassword" [(ngModel)]="register.confirmPassword">
             </div>
             <div style="margin-top: 10px;">
-              <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="login()">login</button>
-              <button type="button" class="btn btn-warning" [routerLink]="['../register']">register</button>
+              <button type="button" class="btn btn-primary" (click)="regis()">Regis</button>
             </div>
           </form>
         </div>
